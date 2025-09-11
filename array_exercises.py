@@ -77,3 +77,28 @@ def rotate(self, matrix: List[List[int]]) -> None:
             
         for _ in range(side_len):
             matrix.pop(0)
+
+"""
+1431. Kids With the Greatest Number of Candies
+
+- Extract the maximum value from the array using the max function
+- iterate over the array
+- For each element add the extra value and compare it with the max value
+- store the comparison value in a return array
+
+Complexity O(n)
+Space O(n)
+"""
+
+class Solution:
+    def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+
+        max_candies = max(candies)
+        result = []
+
+        for number in candies:
+            total_candies = number + extraCandies
+            result.append(total_candies >= max_candies)
+        
+        return result
+        
